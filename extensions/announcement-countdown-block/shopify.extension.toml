@@ -1,0 +1,100 @@
+api_version = "2026-10"
+
+[[extensions]]
+name = "announcement-countdown-block"
+handle = "announcement-countdown-block"
+type = "ui_extension"
+uid = "9aef216b-0cfa-4b0a-3b49-7bd6e4e07dad9f7f4e47"
+
+[[extensions.targeting]]
+module = "./src/Checkout.jsx"
+target = "purchase.checkout.block.render"
+
+[extensions.settings]
+
+[[extensions.settings.fields]]
+key = "component_type"
+type = "single_line_text_field"
+name = "Component type"
+description = "Choose Banner or Box. Defaults to banner."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["banner", "box"]'
+
+[[extensions.settings.fields]]
+key = "variant_ids"
+type = "single_line_text_field"
+name = "Variant IDs"
+description = "Optional. Show only when checkout contains any listed variant. Separate multiple IDs with commas. Accepts numeric IDs or Shopify variant GIDs."
+
+[[extensions.settings.fields]]
+key = "banner_tone"
+type = "single_line_text_field"
+name = "Banner tone"
+description = "Used only with Banner. Defaults to warning."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["warning", "info", "success", "critical", "auto"]'
+
+[[extensions.settings.fields]]
+key = "icon"
+type = "single_line_text_field"
+name = "Box icon"
+description = "Used only with Box. Defaults to none."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["none", "cart", "note", "settings", "reset", "map", "menu", "search", "circle", "filter", "image", "alert-circle", "alert-triangle-filled", "alert-triangle", "arrow-down", "arrow-left", "arrow-right", "arrow-up-right", "arrow-up", "bag", "bullet", "calendar", "camera", "caret-down", "cash-dollar", "categories", "check-circle", "check-circle-filled", "check", "chevron-down", "chevron-left", "chevron-right", "chevron-up", "clipboard", "clock", "credit-card", "delete", "delivered", "delivery", "disabled", "discount", "edit", "email", "empty", "external", "geolocation", "gift-card", "globe", "grid", "info-filled", "info", "list-bulleted", "location", "lock", "menu-horizontal", "menu-vertical", "minus", "mobile", "order", "organization", "plus", "profile", "question-circle-filled", "question-circle", "reorder", "return", "savings", "star-filled", "star-half", "star", "store", "truck", "upload", "x-circle-filled", "x-circle", "x"]'
+
+[[extensions.settings.fields]]
+key = "bg_color"
+type = "single_line_text_field"
+name = "Box background"
+description = "Used only with Box. Defaults to subdued."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["subdued", "base", "transparent"]'
+
+[[extensions.settings.fields]]
+key = "border_color"
+type = "single_line_text_field"
+name = "Box border"
+description = "Used only with Box. Defaults to base."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["base", "none"]'
+
+[[extensions.settings.fields]]
+key = "box_text_size"
+type = "single_line_text_field"
+name = "Box text size"
+description = "Used only with Box. Choose paragraph or heading. Defaults to paragraph."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["paragraph", "heading"]'
+
+[[extensions.settings.fields]]
+key = "countdown_text_color"
+type = "single_line_text_field"
+name = "Box countdown color"
+description = "Used only with Box. Defaults to critical."
+[[extensions.settings.fields.validations]]
+name = "choices"
+value = '["critical", "warning", "info", "success", "neutral", "auto"]'
+
+[[extensions.settings.fields]]
+key = "text"
+type = "single_line_text_field"
+name = "Announcement text"
+description = "eg: Your order is reserved for {countdown}"
+
+[[extensions.settings.fields]]
+key = "event_start"
+type = "date_time"
+name = "Event start"
+description = "Required only when the announcement text contains {countdown}."
+
+[[extensions.settings.fields]]
+key = "event_end"
+type = "date_time"
+name = "Event end"
+description = "Required only when the announcement text contains {countdown}. The countdown ends at this time."
